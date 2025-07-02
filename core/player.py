@@ -1,10 +1,12 @@
 from ui.renderer import ConsoleUIRenderer
 
 class Player:
-    def __init__(self, name, strength, intelligence, hp, mana):
+    def __init__(self, name, strength, intelligence, dexterity, wisdom, hp, mana):
         self.name = name
         self.strength = strength
         self.intelligence = intelligence
+        self.dexterity = dexterity
+        self.wisdom = wisdom
         self.hp = hp
         self.mana = mana
         self.defense = 0
@@ -13,6 +15,7 @@ class Player:
         self.status_effects = []
         self.inventory = []
         self.stunned = False
+        self.invisible = False
         self.ui_renderer = ConsoleUIRenderer()
 
     def perform_action(self, index, target):
@@ -53,8 +56,8 @@ class Player:
         return f"{self.name} [HP: {self.hp}, Mana: {self.mana}, DEF: {self.defense}]"
 
 class AIPlayer(Player):
-    def __init__(self, name, strength, intelligence, hp, mana, ai_behavior):
-        super().__init__(name, strength, intelligence, hp, mana)
+    def __init__(self, name, strength, intelligence, dexterity, wisdom, hp, mana, ai_behavior):
+        super().__init__(self, name, strength, intelligence, dexterity, wisdom, hp, mana)
         self.ai_behavior = ai_behavior
 
     def take_turn(self, opponent):

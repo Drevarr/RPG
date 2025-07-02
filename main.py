@@ -6,8 +6,8 @@ from effects.conditions import BurnEffect
 from ai.behavior import AggressiveAI
 from items.potions import HealingPotion
 
-hero = Player("Hero", strength=8, intelligence=6, hp=100, mana=30)
-enemy = AIPlayer("Goblin", strength=10, intelligence=3, hp=60, mana=10, ai_behavior=AggressiveAI())
+hero = Player("Hero", strength=8, intelligence=6, dexterity=5, wisdom = 3, hp=100, mana=30)
+enemy = AIPlayer("Goblin", strength=10, intelligence=3, dexterity=4, wisdom = 2, hp=60, mana=10, ai_behavior=AggressiveAI())
 
 fireball = ManaCostAction(FireballSpell(), cost=10)
 fireball = CooldownAction(fireball, cooldown_turns=2)
